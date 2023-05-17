@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Productos</title>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="./js/app_product.js"></script>
+  <link rel="stylesheet" href="./css/styles_product.css">
+  <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo">
+      <img src="./assets/logo_2.png" alt="Logo" height="40">
+    </div>
+    <div class="user-info">
+      <span class="user-name" id="user-name"></span>
+      <!-- ... -->
+      <div class="dropdown">
+        <button class="dropbtn">Editar Negocio</button>
+        <div class="dropdown-content">
+          <a href="#" id="editHoursOption" class="dropdown-content-action">Editar horario</a>
+          <a href="#" id="editLocationOption" class="dropdown-content-action">Editar ubicación</a>
+        </div>
+      </div>
+      <!-- ... -->
+      <button class="logout-button" id="logout-button">Cerrar sesión</button>
+    </div>
+  </nav>
+
+  <!-- PRODUCTOS -->
+  <div id="container-product" class="container">
+    <h1>Productos</h1>
+    <div class="search-container">
+      <div class="search-container-buscar">
+        <input id="search-input" class="search-input" type="text" placeholder="Buscar por nombre">
+        <button id="searchButton" class="search-button">Buscar</button>
+      </div>
+      <button id="add-product-button" class="add-product-button"> + AGREGAR PRODUCTO</button>
+    </div>
+    <div id="productList">
+      <!-- Aquí se mostrarán los productos -->
+    </div>
+  </div>
+  <!-- ... -->
+
+  <!-- Formulario de editar horario -->
+  <div class="overlay" id="hoursOverlay">
+    <div class="hours-form">
+      <h2>Horario</h2>
+      <form id="hoursForm">
+        <div class="weekday">
+          <label>Lunes</label>
+          <input type="checkbox" class="available" id="Lunes-available">
+          <input type="time" class="start-time" value="00:00" disabled id="Lunes-start-time">
+          <input type="time" class="end-time"  value="00:00" disabled id="Lunes-end-time">
+        </div>
+        <div class="weekday">
+          <label>Martes</label>
+          <input type="checkbox" class="available" id="Martes-available">
+          <input type="time" class="start-time" value="00:00"  disabled id="Martes-start-time">
+          <input type="time" class="end-time" value="00:00"  disabled id="Martes-end-time">
+        </div>
+        <div class="weekday">
+          <label>Miercoles</label>
+          <input type="checkbox" class="available" id="Miercoles-available">
+          <input type="time" class="start-time" value="00:00"  disabled id="Miercoles-start-time">
+          <input type="time" class="end-time" value="00:00"  disabled id="Miercoles-end-time">
+        </div>
+        <div class="weekday">
+          <label>Jueves</label>
+          <input type="checkbox" class="available" id="Jueves-available">
+          <input type="time" class="start-time" value="00:00"  disabled id="Jueves-start-time">
+          <input type="time" class="end-time" value="00:00"  disabled id="Jueves-end-time">
+        </div>
+        <div class="weekday">
+          <label>Viernes</label>
+          <input type="checkbox" class="available" id="Viernes-available">
+          <input type="time" class="start-time" value="00:00"  disabled id="Viernes-start-time">
+          <input type="time" class="end-time" value="00:00"  disabled id="Viernes-end-time">
+        </div>
+        <div class="weekday">
+          <label>Sabado</label>
+          <input type="checkbox" class="available" id="Sabado-available">
+          <input type="time" class="start-time" value="00:00"  disabled id="Sabado-start-time">
+          <input type="time" class="end-time" value="00:00"  disabled id="Sabado-end-time">
+        </div>
+        <div class="weekday">
+          <label>Domingo</label>
+          <input type="checkbox" class="available" id="Domingo-available">
+          <input type="time" class="start-time" value="00:00"  disabled id="Domingo-start-time">
+          <input type="time" class="end-time" value="00:00"  disabled id="Domingo-end-time">
+        </div>
+        <!-- Repite el bloque de arriba para cada día de la semana -->
+        <button id="cancelHours" class="form-button-cancel">CANCELAR</button>
+        <button id="saveHours" class="form-button-save">GUARDAR</button>
+      </form>
+    </div>
+  </div>
+  <!-- ... -->
+
+  <!-- Formulario de ubicación -->
+  <div class="overlay" id="ubicacionOverlay">
+    <div id="locationFormContainer" class="ubicacion-form">
+      <h2>Ubicación</h2>
+      <form id="locationForm">
+        <div class="form-row">
+          <label for="latitude" >Latitud:</label>
+          <input type="number" id="latitude" name="latitude" pattern="-?(\d+\.\d+|\d+)" title="Por favor, ingrese un número válido">
+        </div>
+
+        <div class="form-row">
+          <label for="longitude">Longitud:</label>
+          <input type="number" id="longitude" name="longitude" pattern="-?(\d+\.\d+|\d+)" title="Por favor, ingrese un número válido">
+        </div>
+
+        <button id="cancelLocation" class="form-button-cancel">CANCELAR</button>
+        <button id="saveLocation" class="form-button-save">GUARDAR</button>
+      </form>
+    </div>
+  </div>
+  <!-- ... -->
+
+  <!-- Formulario de producto -->
+  <div id="productoOverlay" class="overlay" >
+    <div id="productFormContainer" class="product-form">
+      <h2 id="product-title">Nuevo Producto</h2>
+      <form id="productForm">
+        <div class="form-row">
+          <label for="productName">Nombre:</label>
+          <input type="text" id="productName" name="productName" required >
+        </div>
+
+        <div class="form-row">
+          <label for="productDescription">Descripción:</label>
+          <textarea id="productDescription" name="productDescription" required></textarea>
+        </div>
+
+        <div class="form-row">
+          <label for="productStock">Stock:</label>
+          <input type="number" id="productStock" name="productStock" required>
+        </div>
+        
+        <div class="form-row">
+          <label for="productPrice">Precio:</label>
+          <input type="number" id="productPrice" name="productPrice" required>
+        </div>
+        
+        <div class="form-row">
+          <label for="productDiscountPrice">Precio de descuento:</label>
+          <input type="number" id="productDiscountPrice" name="productDiscountPrice" required>
+        </div>
+
+        <div class="form-row">
+          <label for="productImage">Imagen:</label>
+          <input type="file" id="productImage" name="productImage" accept="image/*" >
+        </div>
+
+        <div class="form-row">
+        <label>Etiquetas:</label>
+          <div id="tagsContainer"></div>
+          <button type="button" id="addTagBtn">Añadir Etiqueta</button>
+        </div>
+
+        <button id="cancelProductBtn" class="form-button-cancel">CANCELAR</button>
+        <button id="saveProductBtn" class="form-button-save">GUARDAR</button>
+        <button id="editProductBtn" class="form-button-save" style="display:none;">GUARDAR CAMBIOS</button>
+      </form>
+    </div>
+  </div>
+  <!-- ... -->
+
+</body>
+</html>

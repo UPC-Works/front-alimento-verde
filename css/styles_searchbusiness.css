@@ -1,0 +1,44 @@
+.statusOpen {
+color: green
+}
+
+.statusClose {
+color: red
+}
+
+.verNegocio {
+background-color: #1410DF;
+color: white;
+padding: 6px 12px;
+font-size: 12px;
+border-radius: 8px;
+box-shadow: none;
+}
+
+#productList {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 0;
+    height: 100%;
+    overflow: auto;
+    background-color: #f1f1f1;
+    transition: 0.5s;
+}
+
+#productList.productListShown {
+    width: 300px; 
+}
+
+#productList.productListHidden {
+    width: 0;
+}
+
+#closeButton {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 10px;
+    font-size: 20px;
+    color: black;
+}

@@ -1,0 +1,306 @@
+/* Estilos para el navbar */
+.navbar {
+display: flex;
+justify-content: space-between;
+align-items: center;
+background-color: white;
+padding: 10px 20px;
+color: white;
+font-size: 1.1em;
+}
+
+.logo {
+display: flex;
+align-items: center;
+}
+
+.user-info {
+display: flex;
+align-items: center;
+}
+
+.user-name {
+margin-right: 20px;
+}
+
+.logout-button {
+background-color: #e74c3c;
+color: white;
+border: none;
+padding: 6px 12px;
+font-size: 16px;
+border-radius: 3px;
+cursor: pointer;
+}
+
+.overlay {
+display: none;
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background-color: rgba(0, 0, 0, 0.5);
+z-index: 999;
+}
+
+.hours-form {
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+background-color: white;
+padding: 20px;
+border-radius: 5px;
+width: 80%;
+max-width: 500px;
+}
+
+.ubicacion-form {
+position: absolute;
+flex-direction: column;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+background-color: white;
+padding: 20px;
+border-radius: 5px;
+width: 80%;
+max-width: 500px;
+}
+
+.product-form {
+position: absolute;
+flex-direction: column;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+background-color: white;
+padding: 20px;
+border-radius: 5px;
+width: 80%;
+max-width: 500px;
+}
+
+.form-row {
+display: flex;
+align-items: center;
+margin-bottom: 10px;
+}
+
+.form-row label {
+margin-right: 10px;
+}
+
+#tagsContainer {
+display: flex;
+flex-wrap: wrap;
+margin-right: 10px;
+}
+
+#tagsContainer input[type='text'] {
+margin-right: 5px;
+margin-bottom: 5px;
+}
+
+.form-action{
+padding-top: 10px;
+}
+
+.form-button-save{
+background-color: #01B844;
+color: white;
+border: none;
+padding: 6px 12px;
+font-size: 16px;
+border-radius: 3px;
+margin-top: 5px;
+cursor: pointer;
+}
+
+.form-button-cancel{
+background-color: #616161;
+color: white;
+border: none;
+padding: 6px 12px;
+font-size: 16px;
+border-radius: 3px;
+cursor: pointer;
+}
+
+.weekday {
+display: flex;
+align-items: center;
+gap: 10px;
+margin-bottom: 10px;
+}
+
+  
+body {
+background-color: #f0f0f0;
+font-family: Arial, sans-serif;
+}
+
+.container {
+max-width: 800px;
+margin: 40px auto;
+background-color: white;
+padding: 20px;
+border-radius: 5px;
+box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* ... */
+.dropdown {
+position: relative;
+display: inline-block;
+}
+
+.dropdown-content {
+display: none;
+position: absolute;
+background-color: #f9f9f9;
+min-width: 160px;
+box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+z-index: 1;
+}
+
+.dropdown-content a {
+color: black;
+padding: 12px 16px;
+text-decoration: none;
+display: block;
+}
+
+.dropdown-content a:hover {
+background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content {
+display: block;
+}
+
+.dropbtn {
+background-color: #03022D;
+color: white;
+margin-right: 12px;
+padding: 6px 12px;
+border-radius: 3px;
+font-size: 16px;
+border: none;
+}
+
+.dropdown-content-action{
+font-size: 16px;
+}
+/* ... */
+
+.search-container {
+display: flex;
+justify-content: space-between;
+align-items: center;
+margin-bottom: 20px;
+}
+
+.search-input {
+flex-grow: 0.3;
+margin-right: 10px;
+padding: 6px 12px;
+border: 1px solid #ccc;
+border-radius: 3px;
+}
+
+.add-product-button{
+background-color: #01B844;
+color: white;
+margin-right: 12px;
+padding: 6px 12px;
+border-radius: 3px;
+font-size: 14px;
+border: none;
+}
+
+.container-product-body{
+display: flex;
+flex-direction: column;
+}
+
+.product-list {
+list-style-type: none;
+padding: 0;
+margin: 0;
+}
+
+.product-item {
+background-color: #f9f9f9;
+border: 1px solid #ccc;
+border-radius: 3px;
+padding: 10px;
+margin-bottom: 10px;
+}
+
+.card-img-top{
+width: 200px;
+}
+
+.card-description-stock{
+margin-bottom: 10px;
+}
+
+.hr{
+color: #E8E8E8;
+}
+
+.card-text-update{
+font-size: 10px;
+}
+
+.tag-badge{
+display: inline-block;
+background-color: #f1f1f1;
+border-radius: 25px;
+padding: 5px 10px;
+margin-top: 15px;
+margin-right: 10px;
+margin-bottom: 10px;
+font-size: 14px;
+color: #333;
+}
+
+.action-container {
+    display: flex;
+    margin-top: 10px;
+}
+
+.action-button-eliminar {
+background-color: #e74c3c;
+color: white;
+margin-right: 12px;
+padding: 6px 12px;
+border-radius: 3px;
+font-size: 12px;
+border: none;
+}
+
+.action-button-editar {
+background-color: #DEAE05;
+color: white;
+margin-right: 12px;
+padding: 6px 12px;
+border-radius: 3px;
+font-size: 12px;
+border: none;
+}
+
+
+/**/
+
+.card-percentage-discount{
+padding-top: 6px;
+padding-bottom: 6px;
+color:blue;
+}
+
+.form-button-edit{
+padding-top: 6px;
+}

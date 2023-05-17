@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>App Web</title>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href="./css/styles_index.css">
+    <script src="./js/app_index.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="left-side">
+            <img src="./assets/logo.png" alt="Logo" class="logo">
+        </div>
+        <div class="right-side">
+            <div class="form-container">
+                <div id="sign-in-form" class="form">
+                    <h1>Bienvenido</h1>
+                    <input type="email" id="email" value="" placeholder="Correo electronico">
+                    <input type="password" id="password" value="" placeholder="Contraseña">
+                    <button id="sign-in-btn">Iniciar sesión</button>
+                    <a href="#" id="sign-up-link">Registro ></a>
+                </div>
+                <div id="sign-up-form" class="form" style="display: none;">
+                    <h1>Registrate</h1>
+                    <div>
+                        <input type="radio" id="restaurant" name="user-type" value="1">
+                        <label for="restaurant">Restaurante</label>
+                        <input type="radio" id="diner" name="user-type" value="2">
+                        <label for="diner">Comensal</label>
+                    </div>
+                    <input type="text" id="full-name" value="" placeholder="Nombre completo">
+                    <input type="email" id="sign-up-email" value="" placeholder="Correo electronico">
+                    <input type="password" id="sign-up-password" value="" placeholder="Contraseña">
+                    <button id="register-btn">Registrarme</button>
+                    <a href="#" id="sign-in-link">Ingreso ></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
