@@ -139,7 +139,8 @@ function displayProducts(products) {
 async function fetchProducts(business_id) {
   try {
       const url = new URL('http://localhost:8000/product/'+business_id);
-      url.searchParams.append('name', name);
+      url.searchParams.append('name', '');
+      url.searchParams.append('type_user', 2);
       const response = await fetch(url);
       
       const products = await response.json();

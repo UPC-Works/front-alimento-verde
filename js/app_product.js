@@ -349,6 +349,7 @@ async function fetchProducts(name='') {
   try {
       const url = new URL('http://localhost:8000/product/'+localStorage.getItem('userId'));
       url.searchParams.append('name', name);
+      url.searchParams.append('type_user', 1);
       const response = await fetch(url);
       
       const products = await response.json();
