@@ -25,8 +25,14 @@ function generateContent(business) {
 
 
 // Display de la lista de productos
-function displayProducts(products) {
+function displayProducts(products,business_name,business_phone) {
   const productList = document.getElementById('productList');
+
+  // Mostrar el titulo
+  let productTitle = document.createElement('h2');
+  productTitle.className = 'container-title-product';
+  productTitle.innerText = business_name;
+  productList.appendChild(productTitle);
 
   products.forEach(product => {
 
@@ -112,12 +118,11 @@ function displayProducts(products) {
     actionContainer.classList.add("action-container");
 
     // Botón Solicitar
-    // const deleteBtn = document.createElement("button");
-    // deleteBtn.id = `delete-product-button-${product.id}`;
-    // deleteBtn.textContent = "Eliminar";
-    // deleteBtn.classList.add("action-button-eliminar");
-    // actionContainer.appendChild(deleteBtn);
-
+    const requestBtn = document.createElement("button");
+    requestBtn.id = `request-product-button-${product.id}`;
+    requestBtn.textContent = "Solicitar";
+    requestBtn.classList.add("action-button-request");
+    actionContainer.appendChild(requestBtn);
     productList.appendChild(actionContainer);
 
     // Agrega una línea divisoria después de cada producto, excepto el último
@@ -128,15 +133,16 @@ function displayProducts(products) {
     }
 
     // Solicitar producto
-    // deleteBtn.addEventListener("click", () => {
-    //   fetchEliminarProduct(product.id,product.name);
-    //   location.reload();
-    // });
+    requestBtn.addEventListener("click", () => {
+      var number = business_phone;
+      var message = 'Hola '+business_name+', vengo de AlimentoVerde y deseo adquirir este producto: *'+product.name+'*';
+      window.open('https://wa.me/' + number + '?text=' + encodeURIComponent(message));
+    });
 
 });}
 
 // Función para obtener la lista de productos del servidor
-async function fetchProducts(business_id) {
+async function fetchProducts(business_id,business_name,business_phone) {
   try {
       const url = new URL('http://localhost:8000/product/'+business_id);
       url.searchParams.append('name', '');
@@ -144,7 +150,7 @@ async function fetchProducts(business_id) {
       const response = await fetch(url);
       
       const products = await response.json();
-      displayProducts(products.message);
+      displayProducts(products.message,business_name,business_phone);
   } catch (error) {
       console.error('Error al obtener la lista de productos:', error);
   }
@@ -185,7 +191,7 @@ function displayNearbyBusinesses(businesses) {
           
                   
           //Llama a la función para obtener la lista de productos del servidor
-          fetchProducts(business.id);
+          fetchProducts(business.id,business.full_name,business.phone);
           
           // Muestra la lista de productos
           productList.classList.remove('productListHidden');
@@ -271,7 +277,16 @@ function initMap() {
     map = new google.maps.Map(document.getElementById("map"), {
       center: center,
       zoom: 15,
-      styles: simpleStyle
+      styles: [
+        simpleStyle,
+        {
+          featureType: "poi",
+          elementType: "labels",
+          stylers: [
+              { visibility: "off" }
+          ]
+        }
+      ]
     });
 
     const response = await fetch("http://localhost:8000/user");
@@ -285,4 +300,10 @@ function initMap() {
 document.addEventListener('DOMContentLoaded', () => {
   initMap();
   showMyLocation();
+  
+  //Cerrar sesion
+  document.getElementById('logout-button').addEventListener('click', () => {
+    window.location.href = 'index.html';
+    alert("Sesión cerrada");
+  });
 })

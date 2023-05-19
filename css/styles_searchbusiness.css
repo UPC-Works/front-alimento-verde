@@ -69,6 +69,10 @@ width: 80%;
 max-width: 500px;
 }
 
+.container-title-product{
+margin: 10px;
+}
+
 .product-form {
 position: absolute;
 flex-direction: column;
@@ -137,7 +141,7 @@ margin-bottom: 10px;
 
     
 body {
-background-color: #f0f0f0;
+background-color: #F2F3F9;
 font-family: Arial, sans-serif;
 }
 
@@ -171,29 +175,127 @@ box-shadow: none;
 }
 
 #productList {
-    position: fixed;
-    top: 0;
-    right: 0;
-    width: 0;
-    height: 100%;
-    overflow: auto;
-    background-color: #f1f1f1;
-    transition: 0.5s;
+position: fixed;
+top: 0;
+right: 0;
+width: 0;
+height: 100%;
+overflow: auto;
+background-color: white;
+transition: 0.5s;
 }
 
 #productList.productListShown {
-    width: 300px; 
+width: 300px; 
 }
 
 #productList.productListHidden {
-    width: 0;
+width: 0;
 }
 
 #closeButton {
-    position: absolute;
-    top: 0;
-    right: 0;
-    padding: 10px;
-    font-size: 20px;
-    color: black;
+position: absolute;
+top: 0;
+right: 0;
+padding: 10px;
+font-size: 20px;
+color: black;
+}
+
+.action-button-request {
+background-color: #01B844;
+color: white;
+margin-left: 12px;
+padding: 6px 12px;
+border-radius: 3px;
+font-size: 12px;
+border: none;
+}
+    
+.container-product{
+margin: 10px;
+}
+
+.container-product-body{
+display: flex;
+flex-direction: column;
+}
+
+.product-list {
+list-style-type: none;
+padding: 0;
+margin: 0;
+}
+
+.product-item {
+background-color: #f9f9f9;
+border: 1px solid #ccc;
+border-radius: 3px;
+padding: 10px;
+margin-bottom: 10px;
+}
+
+.card-img-top{
+width: 200px;
+}
+
+.card-description-stock{
+margin-bottom: 10px;
+}
+
+.hr{
+color: #E8E8E8;
+}
+
+.card-text-update{
+font-size: 10px;
+}
+
+.tag-badge{
+display: inline-block;
+background-color: #f1f1f1;
+border-radius: 25px;
+padding: 5px 10px;
+margin-top: 15px;
+margin-right: 10px;
+margin-bottom: 10px;
+font-size: 14px;
+color: #333;
+}
+
+.action-container {
+    display: flex;
+    margin-top: 10px;
+}
+
+.action-button-eliminar {
+background-color: #e74c3c;
+color: white;
+margin-right: 12px;
+padding: 6px 12px;
+border-radius: 3px;
+font-size: 12px;
+border: none;
+}
+
+.action-button-editar {
+background-color: #DEAE05;
+color: white;
+margin-right: 12px;
+padding: 6px 12px;
+border-radius: 3px;
+font-size: 12px;
+border: none;
+}
+
+/**/
+
+.card-percentage-discount{
+padding-top: 6px;
+padding-bottom: 6px;
+color:blue;
+}
+    
+.form-button-edit{
+padding-top: 6px;
 }
